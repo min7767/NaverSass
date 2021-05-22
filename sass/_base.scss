@@ -3,3 +3,21 @@ body{
   font-weight: 400;
   font-size: rem(16px);
 }
+
+//test code
+.container{
+  width: 1000px;
+  @include boxFixed;
+  background-color:yellow;
+}
+
+.header{
+  background-color: pink;
+  @include sm{
+    background-color: lime;
+  }
+
+  @include md{
+    background-color: aqua;
+  }
+}

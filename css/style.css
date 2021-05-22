@@ -389,4 +389,28 @@ body {
   font-size: 1rem;
 }
 
+.container {
+  width: 1000px;
+  width: 460px;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: yellow;
+}
+
+.header {
+  background-color: pink;
+}
+@media screen and (max-width: 768px -1) {
+  .header {
+    background-color: lime;
+  }
+}
+@media screen and (min-width: 768px -1) {
+  .header {
+    background-color: aqua;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */
