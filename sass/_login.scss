@@ -30,12 +30,22 @@
   }
 }
 
+a{
+  display:block;
+}
+
 //main
 .main{
   flex-grow: 1;
 
 }
-
+//OUTLINE RESET
+:focus{
+  outline: 0;
+}
+:focus-visible{
+  @include customOutline;
+}
 //login form
 .loginForm{
   legend{
@@ -73,7 +83,12 @@
         background-color: lightgray;
       }
     }
+
+    &__input:focus-visible{
+      box-shadow: none;
+    }
 }
+
 
 .errorMessage{
   color: $red;
@@ -100,7 +115,7 @@
 //IP Security Checkbox
 .ipSecurity{
   //CHECKBOX INPUT
-  &Checkbox{
+  &__checkbox{
      position:absolute;
      width: 1px;
      height: 1px;
@@ -108,7 +123,7 @@
   }
 
   //CHECKBOX LABEL
-  &Label::before{
+  &__label::before{
     display: inline-block;
     width: em(36px);
     padding: 0em(4px);
@@ -119,14 +134,47 @@
    color: $secondary;
   }
 
-  &Checkbox:checked + &Label::before{
+  &__checkbox:checked + &__label::before{
     content: "ON";
     color:$primary;
   }
 
-  &Checkbox:focus + &Label::before{
-    box-shadow: 0 0 0 2px $outline;
-    border-radius: 4px;
+  &__checkbox:focus + &__label::before{
+    @include customOutline;
+  }
+}
+
+//Login Status
+.loginState{
+  //loginstate input
+  &__checkbox{
+     position: absolute;
+     width: 1px;
+     height: 1px;
+     opacity: 0;
+  }
+
+  //loginstate label
+  &__label{
+    @include flexbox(row, flex-start, center);
+    cursor: pointer;
+  }
+  &__label::before{
+    content: "";
+    display:inline-block;
+    width: em(25px);
+    height: em(25px);
+    background: url(./../images/unchecked.svg) no-repeat;
+    background-size: 100% 100%;
+    margin-right: em(8px);
+  }
+
+  &__checkbox:checked + &__label::before {
+    background-image: url(./../images/checked.svg);
+  }
+
+  &__checkbox:focus + &__label::before{
+    @include customOutline;
   }
 }
 

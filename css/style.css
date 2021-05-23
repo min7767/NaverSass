@@ -461,8 +461,21 @@ body {
   }
 }
 
+a {
+  display: block;
+}
+
 .main {
   flex-grow: 1;
+}
+
+:focus {
+  outline: 0;
+}
+
+:focus-visible {
+  box-shadow: 0 0 0 2px #3e3bf5;
+  border-radius: 2px;
 }
 
 .loginForm legend {
@@ -502,6 +515,9 @@ body {
   outline: 0;
   background-color: lightgray;
 }
+.formControl__input:focus-visible {
+  box-shadow: none;
+}
 
 .errorMessage {
   color: #ff1414;
@@ -527,13 +543,13 @@ body {
   color: inherit;
 }
 
-.ipSecurityCheckbox {
+.ipSecurity__checkbox {
   position: absolute;
   width: 1px;
   height: 1px;
   opacity: 0;
 }
-.ipSecurityLabel::before {
+.ipSecurity__label::before {
   display: inline-block;
   width: 2.25em;
   padding: 0em 4px;
@@ -543,13 +559,44 @@ body {
   margin-left: 0.5em;
   color: #DADADA;
 }
-.ipSecurityCheckbox:checked + .ipSecurityLabel::before {
+.ipSecurity__checkbox:checked + .ipSecurity__label::before {
   content: "ON";
   color: #03cf5d;
 }
-.ipSecurityCheckbox:focus + .ipSecurityLabel::before {
+.ipSecurity__checkbox:focus + .ipSecurity__label::before {
   box-shadow: 0 0 0 2px #3e3bf5;
-  border-radius: 4px;
+  border-radius: 2px;
+}
+
+.loginState__checkbox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.loginState__label {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  cursor: pointer;
+}
+.loginState__label::before {
+  content: "";
+  display: inline-block;
+  width: 1.5625em;
+  height: 1.5625em;
+  background: url(./../images/unchecked.svg) no-repeat;
+  background-size: 100% 100%;
+  margin-right: 0.5em;
+}
+.loginState__checkbox:checked + .loginState__label::before {
+  background-image: url(./../images/checked.svg);
+}
+.loginState__checkbox:focus + .loginState__label::before {
+  box-shadow: 0 0 0 2px #3e3bf5;
+  border-radius: 2px;
 }
 
 .loginButton {
