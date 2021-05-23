@@ -6,6 +6,12 @@ body *, *::before, body *::after{
   box-sizing: border-box;
 }
 
+
+//hide
+.a11yHidden{
+  @include a11y;
+}
+
 //반응형 이미지
 img{
   max-width: 100%;

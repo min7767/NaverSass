@@ -391,6 +391,17 @@ body *, *::before, body *::after {
   box-sizing: border-box;
 }
 
+.a11yHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  visibility: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -452,6 +463,46 @@ body {
 
 .main {
   flex-grow: 1;
+}
+
+.loginForm legend {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  visibility: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+}
+
+.userEmail, .userPassword {
+  margin-bottom: 0.625em;
+}
+
+.formControlUser {
+  border: 1px solid #DADADA;
+  padding: 0.5625em;
+}
+.formControlUser:focus-within {
+  border-color: #03cf5d;
+}
+.formControl__input {
+  width: 100%;
+  padding: 0.3125em;
+}
+.formControl__input:focus {
+  outline: 0;
+  background-color: alpha;
+}
+
+.errorMessage {
+  color: #ff1414;
+  display: none;
+}
+
+.is--invalid .errorMessage {
+  display: block;
 }
 
 /*# sourceMappingURL=style.css.map */

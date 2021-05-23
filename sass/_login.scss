@@ -35,3 +35,58 @@
   flex-grow: 1;
 
 }
+
+//login form
+.loginForm{
+  legend{
+    @include a11y;
+  }
+
+}
+
+//asdf
+.userEmail, .userPassword{
+  margin-bottom: em(10px);
+}
+
+
+
+.formControl{
+    &User{
+      border: 1px solid $secondary;
+      padding: em(9px);
+
+      &:focus-within{
+        border-color: $green;
+      }
+    }
+
+    &__input{
+      width: 100%;
+      padding: em(5px);
+
+      &:focus{
+        outline: 0;
+        background-color: alpha;
+      }
+    }
+}
+
+
+
+
+
+
+
+
+.errorMessage{
+  color: $red;
+  display:none;
+}
+
+.is--invalid .errorMessage{
+  display: block;
+}
+
+
+
