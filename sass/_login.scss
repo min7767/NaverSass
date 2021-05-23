@@ -41,10 +41,13 @@
   legend{
     @include a11y;
   }
-
+  
+ &__container{
+   @include flexbox (column);
+ }
 }
 
-//asdf
+//로그인 비밀번호
 .userEmail, .userPassword{
   margin-bottom: em(10px);
 }
@@ -67,17 +70,10 @@
 
       &:focus{
         outline: 0;
-        background-color: alpha;
+        background-color: lightgray;
       }
     }
 }
-
-
-
-
-
-
-
 
 .errorMessage{
   color: $red;
@@ -87,6 +83,68 @@
 .is--invalid .errorMessage{
   display: block;
 }
+
+//기능
+.userSelectInfo{
+  order: 1;
+  @include flexbox;
+}
+
+//IP Security link
+.ipSecurityLink{
+  margin-left: auto;
+  text-decoration: none;
+  color: inherit;
+}
+
+//IP Security Checkbox
+.ipSecurity{
+  //CHECKBOX INPUT
+  &Checkbox{
+     position:absolute;
+     width: 1px;
+     height: 1px;
+     opacity: 0;
+  }
+
+  //CHECKBOX LABEL
+  &Label::before{
+    display: inline-block;
+    width: em(36px);
+    padding: 0em(4px);
+    font-size: rem(14px);
+   content: "OFF";
+   font-weight: 700;
+   margin-left: em(8px);
+   color: $secondary;
+  }
+
+  &Checkbox:checked + &Label::before{
+    content: "ON";
+    color:$primary;
+  }
+
+  &Checkbox:focus + &Label::before{
+    box-shadow: 0 0 0 2px $outline;
+    border-radius: 4px;
+  }
+}
+
+//login button
+.loginButton{
+  margin: em(10px) 0;
+  background-color: $primary;
+  color: $default;
+
+  .formControl__button{
+  background-color: inherit;
+  color: inherit;
+  width: 100%;
+  padding: em(19px) em(16px);
+}
+
+}
+
 
 
 

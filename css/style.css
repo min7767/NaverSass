@@ -475,6 +475,13 @@ body {
   clip: rect(0, 0, 0, 0);
   clip-path: inset(50%);
 }
+.loginForm__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: nowrap;
+}
 
 .userEmail, .userPassword {
   margin-bottom: 0.625em;
@@ -493,7 +500,7 @@ body {
 }
 .formControl__input:focus {
   outline: 0;
-  background-color: alpha;
+  background-color: lightgray;
 }
 
 .errorMessage {
@@ -503,6 +510,58 @@ body {
 
 .is--invalid .errorMessage {
   display: block;
+}
+
+.userSelectInfo {
+  order: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: nowrap;
+}
+
+.ipSecurityLink {
+  margin-left: auto;
+  text-decoration: none;
+  color: inherit;
+}
+
+.ipSecurityCheckbox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.ipSecurityLabel::before {
+  display: inline-block;
+  width: 2.25em;
+  padding: 0em 4px;
+  font-size: 0.875rem;
+  content: "OFF";
+  font-weight: 700;
+  margin-left: 0.5em;
+  color: #DADADA;
+}
+.ipSecurityCheckbox:checked + .ipSecurityLabel::before {
+  content: "ON";
+  color: #03cf5d;
+}
+.ipSecurityCheckbox:focus + .ipSecurityLabel::before {
+  box-shadow: 0 0 0 2px #3e3bf5;
+  border-radius: 4px;
+}
+
+.loginButton {
+  margin: 0.625em 0;
+  background-color: #03cf5d;
+  color: #fff;
+}
+.loginButton .formControl__button {
+  background-color: inherit;
+  color: inherit;
+  width: 100%;
+  padding: 1.1875em 1em;
 }
 
 /*# sourceMappingURL=style.css.map */
